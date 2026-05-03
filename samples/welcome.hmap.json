@@ -1,0 +1,85 @@
+{
+  "format": "hive-mindmap",
+  "version": 1,
+  "meta": {
+    "title": "Welcome to Hive",
+    "createdAt": "2026-05-03T00:00:00.000Z",
+    "updatedAt": "2026-05-03T00:00:00.000Z",
+    "theme": "light"
+  },
+  "layout": "radial",
+  "viewport": { "x": 0, "y": 0, "zoom": 1 },
+  "root": {
+    "id": "root",
+    "text": "Welcome to Hive",
+    "children": [
+      {
+        "id": "n_start",
+        "text": "Getting started",
+        "color": "#9ad0e8",
+        "children": [
+          { "id": "n_tab",   "text": "Tab — add child",        "children": [] },
+          { "id": "n_enter", "text": "Enter — add sibling",    "children": [] },
+          { "id": "n_f2",    "text": "F2 — rename",            "children": [] },
+          { "id": "n_del",   "text": "Delete — remove",        "children": [] },
+          { "id": "n_right", "text": "Right-click for menu",   "children": [] }
+        ]
+      },
+      {
+        "id": "n_priorities",
+        "text": "Priorities & status",
+        "color": "#f7a8a0",
+        "children": [
+          { "id": "n_p1",   "text": "Critical task",   "priority": 1, "children": [] },
+          { "id": "n_p2",   "text": "High priority",   "priority": 2, "children": [] },
+          { "id": "n_p3",   "text": "Medium priority", "priority": 3, "children": [] },
+          { "id": "n_p4",   "text": "Low priority",    "priority": 4, "children": [] },
+          { "id": "n_done", "text": "Mark complete (Ctrl+Enter)", "completed": true, "children": [] }
+        ]
+      },
+      {
+        "id": "n_features",
+        "text": "Features",
+        "color": "#a8d8a3",
+        "children": [
+          { "id": "n_dnd",    "text": "Drag & drop nodes",            "children": [] },
+          { "id": "n_themes", "text": "Themes — try Aqua or Prague",  "children": [] },
+          { "id": "n_align",  "text": "Auto-align layouts",           "children": [] },
+          { "id": "n_zoom",   "text": "Zoom & fit-to-screen",         "children": [] },
+          { "id": "n_color",  "text": "Color-code branches",          "children": [] }
+        ]
+      },
+      {
+        "id": "n_layouts",
+        "text": "Layouts",
+        "color": "#b8a5e3",
+        "children": [
+          { "id": "n_lay_radial", "text": "Radial",             "children": [] },
+          { "id": "n_lay_th",     "text": "Tree — horizontal",  "children": [] },
+          { "id": "n_lay_tv",     "text": "Tree — vertical",    "children": [] },
+          { "id": "n_lay_free",   "text": "Free (drag freely)", "children": [] }
+        ]
+      },
+      {
+        "id": "n_files",
+        "text": "Save & open",
+        "color": "#f6c177",
+        "children": [
+          { "id": "n_save", "text": "Save as .hmap.json", "children": [] },
+          { "id": "n_open", "text": "Open existing maps", "children": [] },
+          { "id": "n_auto", "text": "Auto-saved locally", "children": [] }
+        ]
+      },
+      {
+        "id": "n_tips",
+        "text": "Pro tips",
+        "color": "#f4d35e",
+        "children": [
+          { "id": "n_tip_keys", "text": "1–4 sets priority, 0 clears", "children": [] },
+          { "id": "n_tip_undo", "text": "Ctrl+Z / Ctrl+Y for undo/redo", "children": [] },
+          { "id": "n_tip_fit",  "text": "Press F to fit to screen",     "children": [] }
+        ]
+      }
+    ]
+  }
+}

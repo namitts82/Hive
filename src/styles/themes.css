@@ -1,0 +1,172 @@
+/* Default (light) */
+:root,
+[data-theme='light'] {
+  --bg: #faf8f3;
+  --fg: #1d2330;
+  --fg-muted: #5f6b7a;
+  --canvas-bg: #fdfbf6;
+  --grid-dot: #ece7db;
+  --toolbar-bg: #ffffff;
+  --border: #d8dde6;
+  --btn-bg: #ffffff;
+  --btn-hover: #eef1f7;
+  --node-bg: #ffffff;
+  --node-fg: #1d2330;
+  --node-border: #c8cfdb;
+  --root-bg: #ffd76a;
+  --root-fg: #2a1f00;
+  --root-border: #c79b00;
+  --edge: #9aa3b1;
+  --accent: #ff8a00;
+  --accent-fg: #ffffff;
+  --accent-soft: rgba(255, 138, 0, 0.18);
+  --shadow: rgba(20, 30, 60, 0.08);
+  --shadow-strong: rgba(20, 30, 60, 0.16);
+}
+
+[data-theme='dark'] {
+  --bg: #0f141c;
+  --fg: #e6ebf3;
+  --fg-muted: #8a95a6;
+  --canvas-bg: #131a25;
+  --grid-dot: #1f2836;
+  --toolbar-bg: #161d29;
+  --border: #2a3343;
+  --btn-bg: #1c2433;
+  --btn-hover: #25304a;
+  --node-bg: #1c2433;
+  --node-fg: #e6ebf3;
+  --node-border: #2f3a4d;
+  --root-bg: #ffb547;
+  --root-fg: #1d1300;
+  --root-border: #c98000;
+  --edge: #4a5567;
+  --accent: #ffb547;
+  --accent-fg: #1d1300;
+  --accent-soft: rgba(255, 181, 71, 0.20);
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-strong: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='sepia'] {
+  --bg: #f2e8d5;
+  --fg: #3b2f1c;
+  --fg-muted: #6b5a3d;
+  --canvas-bg: #fbf4e1;
+  --grid-dot: #e2d5b1;
+  --toolbar-bg: #f7eed7;
+  --border: #d8c79a;
+  --btn-bg: #fbf4e1;
+  --btn-hover: #eee0bb;
+  --node-bg: #fffbe9;
+  --node-fg: #3b2f1c;
+  --node-border: #c8b27d;
+  --root-bg: #b8743a;
+  --root-fg: #fff7e6;
+  --root-border: #8a4f1d;
+  --edge: #a08a5b;
+  --accent: #b8743a;
+  --accent-fg: #fff7e6;
+  --accent-soft: rgba(184, 116, 58, 0.20);
+  --shadow: rgba(80, 50, 20, 0.12);
+  --shadow-strong: rgba(80, 50, 20, 0.22);
+}
+
+[data-theme='contrast'] {
+  --bg: #000000;
+  --fg: #ffffff;
+  --fg-muted: #cccccc;
+  --canvas-bg: #000000;
+  --grid-dot: #333333;
+  --toolbar-bg: #000000;
+  --border: #ffffff;
+  --btn-bg: #000000;
+  --btn-hover: #333333;
+  --node-bg: #000000;
+  --node-fg: #ffffff;
+  --node-border: #ffffff;
+  --root-bg: #ffff00;
+  --root-fg: #000000;
+  --root-border: #ffff00;
+  --edge: #ffffff;
+  --accent: #ffff00;
+  --accent-fg: #000000;
+  --accent-soft: rgba(255, 255, 0, 0.30);
+  --shadow: rgba(0, 0, 0, 0);
+  --shadow-strong: rgba(0, 0, 0, 0);
+}
+
+/* Aqua: undersea palette — cool blues, teals, and sandy accents */
+[data-theme='aqua'] {
+  --bg: #02283d;            /* deep ocean */
+  --fg: #eaf6fb;            /* sea foam white */
+  --fg-muted: #8fb6c8;
+  --canvas-bg: #053b59;     /* mid-water */
+  --grid-dot: #0d567c;      /* shimmer */
+  --toolbar-bg: #022036;
+  --border: #0d4a6b;
+  --btn-bg: #073f5d;
+  --btn-hover: #0a587f;
+  --node-bg: #e6f6fb;       /* bubble white */
+  --node-fg: #033349;
+  --node-border: #4fb3c9;
+  --root-bg: #00b4d8;       /* coral-reef cyan */
+  --root-fg: #02283d;
+  --root-border: #0077a6;
+  --edge: #4fb3c9;          /* current */
+  --accent: #ffd166;        /* sandy gold */
+  --accent-fg: #02283d;
+  --accent-soft: rgba(255, 209, 102, 0.20);
+  --shadow: rgba(0, 20, 35, 0.35);
+  --shadow-strong: rgba(0, 20, 35, 0.55);
+}
+
+/* Prague: off-white parchment with pastel accents and gold leaf */
+[data-theme='prague'] {
+  --bg: #f5efe3;            /* warm off-white parchment */
+  --fg: #3a2f1f;            /* deep cocoa ink */
+  --fg-muted: #7a6a52;
+  --canvas-bg: #faf5e9;
+  --grid-dot: #e7dcc4;
+  --toolbar-bg: #fbf6ea;
+  --border: #d9c79a;         /* aged gold */
+  --btn-bg: #fbf6ea;
+  --btn-hover: #f1e7cb;
+  --node-bg: #fffaee;
+  --node-fg: #3a2f1f;
+  --node-border: #c9a24a;    /* gold leaf */
+  --root-bg: #d4af37;        /* solid gold */
+  --root-fg: #2b1f06;
+  --root-border: #a37b15;
+  --edge: #b89a5a;
+  --accent: #c9a24a;
+  --accent-fg: #2b1f06;
+  --accent-soft: rgba(201, 162, 74, 0.22);
+  --shadow: rgba(120, 90, 30, 0.12);
+  --shadow-strong: rgba(120, 90, 30, 0.25);
+  /* Pastel palette used as default for non-root child nodes */
+  --node-pastel-1: #f9d5c5; /* peach */
+  --node-pastel-2: #f7e7a1; /* butter */
+  --node-pastel-3: #d6e9c6; /* sage */
+  --node-pastel-4: #cfe4f7; /* sky */
+  --node-pastel-5: #e2d4f0; /* lavender */
+  --node-pastel-6: #f5cde0; /* blush */
+}
+
+/* In Prague, color child nodes by depth-1 index using pastel palette
+   when the node has no explicit color set. */
+[data-theme='prague'] .node[data-depth='1'][data-pastel='0']:not([data-colored='1']) { background: var(--node-pastel-1); }
+[data-theme='prague'] .node[data-depth='1'][data-pastel='1']:not([data-colored='1']) { background: var(--node-pastel-2); }
+[data-theme='prague'] .node[data-depth='1'][data-pastel='2']:not([data-colored='1']) { background: var(--node-pastel-3); }
+[data-theme='prague'] .node[data-depth='1'][data-pastel='3']:not([data-colored='1']) { background: var(--node-pastel-4); }
+[data-theme='prague'] .node[data-depth='1'][data-pastel='4']:not([data-colored='1']) { background: var(--node-pastel-5); }
+[data-theme='prague'] .node[data-depth='1'][data-pastel='5']:not([data-colored='1']) { background: var(--node-pastel-6); }
+[data-theme='prague'] .node {
+  border-color: var(--node-border);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+[data-theme='prague'] .node.root {
+  background: linear-gradient(135deg, #f0c75a 0%, #d4af37 50%, #b8860b 100%);
+  color: var(--root-fg);
+  border-color: var(--root-border);
+}

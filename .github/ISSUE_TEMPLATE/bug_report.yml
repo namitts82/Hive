@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a problem with the Hive mind mapping tool
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Clear description of the bug.
+      placeholder: When I drag a node onto its own child...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open index.html
+        2. Create a node
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & version
+      placeholder: Chrome 124 / Firefox 125 / Edge 124
+    validations:
+      required: true
+  - type: textarea
+    id: file
+    attributes:
+      label: Sample .hmap.json (if relevant)
+      render: json
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
