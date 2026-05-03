@@ -22,6 +22,9 @@ npx --yes http-server . -p 5173
 - **Visual editor** — radial, horizontal-tree, vertical-tree, and free layouts
 - **Drag-and-drop** to reparent nodes (with cycle prevention) or free-move in `free` layout
 - **Themes** — light, dark, sepia, high-contrast, aqua, prague
+- **Branch colors** — pastel outlines per branch, fully customizable per node
+- **Priorities & status** — mark any node 1–4 (corner badge) or complete (✓ badge with strike-through)
+- **Right-click context menu** — rename, add child/sibling, set priority, mark complete, color, duplicate, delete
 - **Auto-align** — recompute the active layout at any time
 - **Keyboard-first**
   - `Tab` — add child
@@ -30,6 +33,7 @@ npx --yes http-server . -p 5173
   - `Del` / `Backspace` — delete subtree
   - `Space` — collapse / expand
   - `Arrows` — move selection in 2D
+  - `1`–`4` — set priority, `0` — clear; `Ctrl+Enter` — toggle complete
   - `Ctrl+Z` / `Ctrl+Y` — undo / redo
   - `Ctrl+S` / `Ctrl+Shift+S` — save / save as
   - `Ctrl+O` — open
@@ -37,6 +41,7 @@ npx --yes http-server . -p 5173
   - Mouse wheel — zoom; click-drag empty area — pan
 - **Persistence**
   - `Save` / `Save As` use the File System Access API where available, with download fallback
+  - Filename auto-derived from the central node's text
   - Autosave to `localStorage` after every change
 
 ## File format — `.hmap.json`
@@ -51,6 +56,9 @@ npx --yes http-server . -p 5173
   "root": {
     "id": "root",
     "text": "Welcome",
+    "color": "#9ad0e8",
+    "priority": 2,
+    "completed": false,
     "children": [ { "id": "...", "text": "...", "children": [] } ]
   }
 }
@@ -63,17 +71,28 @@ A sample lives at [samples/welcome.hmap.json](samples/welcome.hmap.json).
 ```
 index.html
 src/
-  app.js          # entry point, input handling
-  model.js        # tree CRUD + load/serialize
-  layout.js       # radial / tree-h / tree-v / free
-  render.js       # SVG connectors + DOM nodes
-  io.js           # File System Access API + autosave
-  history.js      # undo/redo snapshots
+  app.js              # entry point, wiring, input handling
+  core/
+    model.js          # tree CRUD, ids, validation
+    history.js        # undo/redo snapshots
+  io/
+    io.js             # File System Access API + autosave
+  view/
+    render.js         # SVG connectors + DOM nodes
+    layout.js         # radial / tree-h / tree-v / free
   styles/
     app.css
     themes.css
 samples/
   welcome.hmap.json
 ```
+
+## Deploy
+
+No backend, no build — host the repo root on any static host:
+
+- **Azure Static Web Apps** — App location `/`, leave Api/Output empty
+- **GitHub Pages** — already wired via [.github/workflows/pages.yml](.github/workflows/pages.yml)
+- **Azure Storage static website**, Netlify, Vercel, etc.
 
 See [.github/copilot-instructions.md](.github/copilot-instructions.md) for project conventions.
