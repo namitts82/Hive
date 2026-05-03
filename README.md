@@ -8,7 +8,7 @@
 [![No build](https://img.shields.io/badge/build-none-brightgreen)](#run-it)
 [![Vanilla JS](https://img.shields.io/badge/vanilla-JS-yellow)](#)
 
-A browser-based mind mapping tool inspired by [MindMup](https://www.mindmup.com/). Pure HTML + CSS + vanilla JavaScript — no build step, no backend, no telemetry. Maps are saved as portable, diff-friendly `.hmap.json` files.
+A browser-based mind mapping tool. Pure HTML + CSS + vanilla JavaScript — no build step, no backend, no telemetry. Maps are saved as portable, diff-friendly `.hmap.json` files.
 
 ## Run it
 
