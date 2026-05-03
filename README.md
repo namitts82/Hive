@@ -1,5 +1,13 @@
 # Hive 🐝 — Mind Mapping Tool
 
+[![CI](https://github.com/namitts82/Hive/actions/workflows/ci.yml/badge.svg)](https://github.com/namitts82/Hive/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/namitts82/Hive/actions/workflows/pages.yml/badge.svg)](https://github.com/namitts82/Hive/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/github/license/namitts82/Hive)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/namitts82/Hive)](https://github.com/namitts82/Hive/commits/main)
+[![Code size](https://img.shields.io/github/languages/code-size/namitts82/Hive)](https://github.com/namitts82/Hive)
+[![No build](https://img.shields.io/badge/build-none-brightgreen)](#run-it)
+[![Vanilla JS](https://img.shields.io/badge/vanilla-JS-yellow)](#)
+
 A browser-based mind mapping tool inspired by [MindMup](https://www.mindmup.com/). Pure HTML + CSS + vanilla JavaScript — no build step, no backend, no telemetry. Maps are saved as portable, diff-friendly `.hmap.json` files.
 
 ## Run it
