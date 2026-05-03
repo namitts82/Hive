@@ -184,10 +184,13 @@ export class Renderer {
 
   renderEdges(doc) {
     // Match SVG size to wrap so coords align with absolute children.
+    // overflow:visible so paths to nodes outside the viewport still render
+    // (the wrap area is small but the layout/world can be much larger).
     const r = this.wrapEl.getBoundingClientRect();
     this.svgEl.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
     this.svgEl.setAttribute('width', r.width);
     this.svgEl.setAttribute('height', r.height);
+    this.svgEl.style.overflow = 'visible';
 
     while (this.svgEl.firstChild) this.svgEl.removeChild(this.svgEl.firstChild);
     const origin = this.worldOrigin();
