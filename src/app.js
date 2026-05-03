@@ -209,6 +209,14 @@ function ensureSelection() {
   if (!M.findNode(doc.root, selectedId)) selectedId = doc.root.id;
 }
 
+/** Set color on a node and cascade to all descendants. Pass null/undefined to clear. */
+function applyColor(node, color) {
+  M.walk(node, (n) => {
+    if (color) n.color = color;
+    else delete n.color;
+  });
+}
+
 /* ---------------- Node interaction ---------------- */
 function attachNodeHandlers() {
   for (const [id, el] of renderer.nodeEls) {
@@ -514,14 +522,14 @@ function openContextMenu(x, y, nodeId) {
       const clear = document.createElement('div');
       clear.className = 'swatch clear';
       clear.title = 'Clear color';
-      clear.addEventListener('click', () => { delete node.color; commit(); closeContextMenu(); });
+      clear.addEventListener('click', () => { applyColor(node, null); commit(); closeContextMenu(); });
       row.appendChild(clear);
       for (const c of NODE_COLORS) {
         const sw = document.createElement('div');
         sw.className = 'swatch';
         sw.style.background = c;
         sw.title = c;
-        sw.addEventListener('click', () => { node.color = c; commit(); closeContextMenu(); });
+        sw.addEventListener('click', () => { applyColor(node, c); commit(); closeContextMenu(); });
         row.appendChild(sw);
       }
       menu.appendChild(row);
