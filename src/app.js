@@ -10,6 +10,7 @@ const els = {
   svg: document.getElementById('connectors'),
   status: document.getElementById('status'),
   autosave: document.getElementById('autosave-indicator'),
+  autosaveToggle: document.getElementById('autosave-toggle'),
   layoutSelect: document.getElementById('layout-select'),
   themeSelect: document.getElementById('theme-select'),
   contextMenu: document.getElementById('context-menu'),
@@ -19,9 +20,11 @@ const io = new IOService();
 const history = new History();
 const renderer = new Renderer(els.nodes, els.svg, els.wrap);
 
-let doc = io.loadAutosave() || M.newDocument('Central idea');
+const _autosavePref = (localStorage.getItem('hive:autosave-enabled:v1') ?? '1') === '1';
+const _saved = _autosavePref ? io.loadAutosave() : null;
+let doc = _saved || M.newDocument('Central idea');
 let selectedId = doc.root.id;
-const isFreshMap = !io.loadAutosave();
+const isFreshMap = !_saved;
 
 history.reset(doc);
 applyTheme(doc.meta.theme);
@@ -57,9 +60,35 @@ function flashAutosave() {
 }
 
 let autosaveTimer = null;
+const AUTOSAVE_PREF_KEY = 'hive:autosave-enabled:v1';
+let autosaveEnabled = (localStorage.getItem(AUTOSAVE_PREF_KEY) ?? '1') === '1';
+updateAutosaveButton();
+
+function updateAutosaveButton() {
+  if (!els.autosaveToggle) return;
+  els.autosaveToggle.setAttribute('aria-pressed', String(autosaveEnabled));
+  els.autosaveToggle.title = autosaveEnabled
+    ? 'Auto-save: on (click to turn off)'
+    : 'Auto-save: off (click to turn on)';
+}
+
+function setAutosaveEnabled(enabled) {
+  autosaveEnabled = !!enabled;
+  localStorage.setItem(AUTOSAVE_PREF_KEY, autosaveEnabled ? '1' : '0');
+  updateAutosaveButton();
+  if (autosaveEnabled) {
+    io.autosave(doc);
+    flashAutosave();
+  } else {
+    clearTimeout(autosaveTimer);
+    els.autosave.textContent = 'Auto-save off';
+  }
+}
+
 function commit() {
   history.push(doc);
   rerender();
+  if (!autosaveEnabled) return;
   clearTimeout(autosaveTimer);
   autosaveTimer = setTimeout(() => { io.autosave(doc); flashAutosave(); }, 400);
 }
@@ -202,6 +231,7 @@ async function runCommand(cmd) {
     case 'zoom-out':   renderer.zoomAt(els.wrap.clientWidth / 2, els.wrap.clientHeight / 2, 1 / 1.2); break;
     case 'zoom-reset': renderer.setViewport({ zoom: 1 }); rerender(); break;
     case 'fit':        renderer.fit(doc); rerender(); break;
+    case 'toggle-autosave': setAutosaveEnabled(!autosaveEnabled); break;
   }
 }
 
