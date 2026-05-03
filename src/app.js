@@ -165,12 +165,12 @@ async function runCommand(cmd) {
     }
     case 'add-child': {
       const child = M.addChild(doc.root, selectedId);
-      if (child) { selectedId = child.id; commit(); editNode(child.id); }
+      if (child) { selectedId = child.id; commit(); editNode(child.id, true); }
       break;
     }
     case 'add-sibling': {
       const sib = M.addSibling(doc.root, selectedId);
-      if (sib) { selectedId = sib.id; commit(); editNode(sib.id); }
+      if (sib) { selectedId = sib.id; commit(); editNode(sib.id, true); }
       break;
     }
     case 'delete': {
@@ -231,17 +231,18 @@ function attachNodeHandlers() {
   }
 }
 
-function editNode(id) {
+function editNode(id, selectAll = false) {
   const el = renderer.getNodeEl(id);
   if (!el) return;
   const label = el.querySelector('.label') || el;
   label.classList.add('editing');
   label.setAttribute('contenteditable', 'true');
   label.focus();
-  // Place caret at end.
+  // Select all text for new nodes (so the next keystroke overwrites the placeholder),
+  // otherwise place the caret at the end for normal in-place edits.
   const range = document.createRange();
   range.selectNodeContents(label);
-  range.collapse(false);
+  if (!selectAll) range.collapse(false);
   const sel = window.getSelection();
   sel.removeAllRanges(); sel.addRange(range);
 
