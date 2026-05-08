@@ -24,8 +24,9 @@ body {
   padding: 6px 10px;
   background: var(--toolbar-bg);
   border-bottom: 1px solid var(--border);
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  row-gap: 6px;
 }
 
 .brand { display: flex; align-items: center; gap: 6px; font-size: 15px; flex: 0 0 auto; }
@@ -86,49 +87,6 @@ body {
 .toolbar button[aria-pressed='false'] { opacity: 0.55; }
 .toolbar button[aria-pressed='true']  { background: var(--accent-soft); border-color: var(--accent); }
 
-/* Override the generic pressed-button styles for the switch (knob) variant. */
-.toolbar button.switch,
-.toolbar button.switch[aria-pressed='true'],
-.toolbar button.switch[aria-pressed='false'] {
-  background: transparent;
-  border: none;
-  padding: 4px 8px;
-  gap: 8px;
-  opacity: 1;
-  cursor: pointer;
-}
-.toolbar button.switch:hover { background: var(--btn-hover); }
-.switch-track {
-  position: relative;
-  display: inline-block;
-  width: 34px;
-  height: 18px;
-  border-radius: 999px;
-  background: var(--border);
-  transition: background 160ms ease;
-  flex-shrink: 0;
-}
-.switch-thumb {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.35);
-  transition: transform 160ms ease, background 160ms ease;
-}
-.toolbar button.switch[aria-pressed='true']  .switch-track { background: var(--accent); }
-.toolbar button.switch[aria-pressed='true']  .switch-thumb { transform: translateX(16px); }
-.toolbar button.switch[aria-pressed='false'] .switch-thumb { transform: translateX(0); }
-.toolbar button.switch:focus-visible .switch-track {
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-.switch-label { font-size: 13px; color: var(--fg); }
-@media (max-width: 1280px) {
-  .switch-label { display: none; }
-}
 .toolbar label { color: var(--fg-muted); }
 
 /* ------- Context menu ------- */

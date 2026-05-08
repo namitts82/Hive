@@ -1,8 +1,6 @@
 // File I/O: save / open via File System Access API with download/upload fallback.
-// Also handles localStorage autosave.
 import { loadDocument, FORMAT, VERSION } from '../core/model.js';
 
-const AUTOSAVE_KEY = 'hive:autosave:v1';
 const FILE_TYPE = {
   description: 'Hive mind map',
   accept: { 'application/json': ['.hmap.json', '.json'] },
@@ -104,16 +102,4 @@ export class IOService {
       input.click();
     });
   }
-
-  autosave(doc) {
-    try { localStorage.setItem(AUTOSAVE_KEY, this.serialize(doc)); } catch { /* quota */ }
-  }
-
-  loadAutosave() {
-    const raw = localStorage.getItem(AUTOSAVE_KEY);
-    if (!raw) return null;
-    try { return this.parse(raw); } catch { return null; }
-  }
-
-  clearAutosave() { localStorage.removeItem(AUTOSAVE_KEY); }
 }
